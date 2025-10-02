@@ -45,7 +45,7 @@ const Cover: React.FC<CoverProps> = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         if (validate()) {
-            router.push('/dashboard');
+            router.push('/dashboards/crm/dashboard');
             toast.success('Save Password successful', {
                 position: 'top-right',
                 autoClose: 1500,
@@ -123,7 +123,7 @@ const Cover: React.FC<CoverProps> = () => {
                                             </Col>
                                         </Row>
                                         <div className="d-grid mt-3">
-                                            <SpkButton Buttontype="submit" Customclass="btn btn-primary">Sign In</SpkButton>
+                                            <SpkButton  Buttontype="submit" Customclass="btn btn-primary">Sign In</SpkButton>
                                         </div>
                                     </Form>
                                     <div className="text-center my-3 authentication-barrier">
@@ -144,7 +144,7 @@ const Cover: React.FC<CoverProps> = () => {
                                         </SpkButton>
                                     </div>
                                     <div className="text-center mt-3 fw-medium">
-                                        Dont have an account? <Link scroll={false} href="/authentication/sign-up/basic/" className="text-primary">Sign Up</Link>
+                                        Dont have an account? <Link scroll={false} href="/authentication/sign-up/cover/" className="text-primary">Sign Up</Link>
                                     </div>
                                 </Card.Body>
                             </Card>
@@ -154,8 +154,8 @@ const Cover: React.FC<CoverProps> = () => {
                 <Col xxl={3} xl={3} lg={12} className="d-xl-block d-none px-0">
                     <div className="authentication-cover overflow-hidden">
                         <div className="authentication-cover-logo">
-                            <Link scroll={false} href="/dashboards/sales">
-                                <Image fill src="../../../assets/images/brand-logos/toggle-logo.png" alt="logo" className="desktop-dark" />
+                            <Link scroll={false} href="/dashboards/crm/dashboard">
+                                <Image fill src="../../../assets/images/brand-logos/hello_crm.png" alt="logo" className="desktop-dark" />
                             </Link>
                         </div>
                         <div className="authentication-cover-background">

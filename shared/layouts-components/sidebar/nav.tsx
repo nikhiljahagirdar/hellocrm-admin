@@ -16,7 +16,7 @@ export const MENUITEMS: any = [
      menutitle:'SUPER ADMIN NAVIGATION MENU'
   },
   {
-    title: "Dashboard", icon: Svgicons.Dashboardicon, path: "/dashboard", type: "link", active: false, selected: false, dirchange: false
+    title: "Dashboard", icon: Svgicons.Dashboardicon, path: "/dashboards/crm/dashboard", type: "link", active: false, selected: false, dirchange: false
   },
   {
     title: "Businesses", icon: Svgicons.Applicationicon, type: "sub", active: false, selected: false, dirchange: false, children: [

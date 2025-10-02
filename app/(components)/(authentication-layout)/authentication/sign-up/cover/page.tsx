@@ -145,9 +145,9 @@ const Cover: React.FC<CoverProps> = () => {
                 </Col>
                 <Col xxl={3} xl={3} lg={12} className="d-xl-block d-none px-0">
                     <div className="authentication-cover overflow-hidden">
-                        <div className="authentication-cover-logo">
+                        <div className="authentication-cover-logo justify-content-center align-items-center">
                             <Link scroll={false} href="/dashboards/sales">
-                                <Image fill src="../../../assets/images/brand-logos/toggle-logo.png" alt="logo" className="desktop-dark" />
+                                <Image fill src="../../../assets/images/brand-logos/hello_crm.png" alt="logo" className="desktop-dark" />
                             </Link>
                         </div>
                         <div className="authentication-cover-background">

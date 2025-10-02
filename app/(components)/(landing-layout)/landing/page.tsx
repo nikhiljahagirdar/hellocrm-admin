@@ -55,16 +55,14 @@ const Landing = () => {
     }
 
     let [variable, setVariable] = useState(getState());
-     
-
     useEffect(() => {
         const subscription = data$.subscribe((e) => {
             setVariable(e);
         });
-    
         localStorage.setItem('dynamiccolor','41,7,73');
         localStorage.setItem('vyzormenu','light');
         localStorage.setItem('vyzormodern','Modern');
+        localStorage.setItem('vyzorlightTheme', 'light');
 
         return () => subscription.unsubscribe();
     }, []);
@@ -360,8 +358,8 @@ const Landing = () => {
                             {/* <!-- Start::header-link|switcher-icon --> */}
 
                             <div className="btn-list d-lg-none d-flex">
-                                <Link scroll={false} href="/authentication/sign-in" className="btn btn-primary-light">
-                                    Sign Up
+                                <Link scroll={false} href="/authentication/sign-in/cover/" className="btn btn-primary-light">
+                                    Sign In
                                 </Link>
                                 <SpkButton Buttonvariant='success' onClickfunc={handleShow} Customclass="btn-icon switcher-icon d-flex align-items-center justify-content-center" data-bs-toggle="offcanvas"
                                     data-bs-target="#switcher-canvas">
@@ -403,7 +401,7 @@ const Landing = () => {
                         <nav className="main-menu-container nav nav-pills sub-open">
                             <div className="landing-logo-container">
                                 <div className="horizontal-logo">
-                                    <Link scroll={false} href="/dashboards/sales" className="header-logo">
+                                    <Link scroll={false} href="/dashboards/crm" className="header-logo">
                                         <Image fill src="../assets/images/brand-logos/desktop-logo.png" alt="logo"
                                             className="desktop-logo" />
                                         <Image fill src="../assets/images/brand-logos/desktop-dark.png" alt="logo"
@@ -517,7 +515,7 @@ const Landing = () => {
                             </svg></div>
                             <div className="d-lg-flex d-none align-items-center">
                                 <div className="btn-list d-xl-flex d-none">
-                                    <Link scroll={false} href="/authentication/sign-up/basic" className="btn btn-wave btn-primary border">
+                                    <Link scroll={false} href="/authentication/sign-up/cover/" className="btn btn-wave btn-primary border">
                                         Login / Register
                                     </Link>
                                 </div>
