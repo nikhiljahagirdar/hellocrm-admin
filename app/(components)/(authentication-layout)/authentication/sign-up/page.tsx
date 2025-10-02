@@ -5,9 +5,9 @@ import Seo from "@/shared/layouts-components/seo/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Fragment, useState } from "react"
+import React, { Fragment, useState } from "react";
 import { Card, Col, Form, Row } from "react-bootstrap";
-import { toast,ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 interface CoverProps { }
 
@@ -45,7 +45,7 @@ const Cover: React.FC<CoverProps> = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         if (validate()) {
-            router.push('/dashboard');
+            router.push('/dashboards/sales/');
             toast.success('Save Password successful', {
                 position: 'top-right',
                 autoClose: 1500,
@@ -58,73 +58,65 @@ const Cover: React.FC<CoverProps> = () => {
         }
     };
 
-
     return (
 
         <Fragment>
-            <Seo title="Signin-Cover" />
-
+            <Seo title="Signup-Cover" />
             <Row className="authentication authentication-cover-main mx-0">
                 <Col xxl={9} xl={9}>
                     <Row className="justify-content-center align-items-center h-100">
                         <Col xxl={4} xl={5} lg={6} md={6} sm={8} className="col-12">
-                            <Card className="custom-card border-0 shadow-none my-4">
+                            <Card className="custom-card border-0  shadow-none my-4">
                                 <Card.Body className="p-5">
                                     <div>
-                                        <h4 className="mb-1 fw-semibold">Hi,Welcome back!</h4>
-                                        <p className="mb-4 text-muted fw-normal">Please enter your credentials</p>
+                                        <h4 className="mb-1 fw-semibold">Create your account</h4>
+                                        <p className="mb-4 text-muted fw-normal">Please enter valid credentials</p>
                                     </div>
-                                    <Form onSubmit={handleSubmit}>
-                                        <Row className=" gy-3">
-                                            <Col xl={12}>
-                                                <Form.Label htmlFor="signin-email" className="text-default">Email</Form.Label>
+                                     <Form onSubmit={handleSubmit}>
+                                    <Row className="gy-3">
+                                        <Col xl={12}>
+                                            <Form.Label htmlFor="signup-username" className="text-default">User Name</Form.Label>
+                                            <Form.Control type="text" className="" id="signup-username" placeholder="Enter User Name" defaultValue="Tom Phillip" />
+                                        </Col>
+                                        <Col xl={12}>
+                                            <Form.Label htmlFor="signin-email" className="text-default">Email</Form.Label>
+                                            <Form.Control
+                                                type="email"
+                                                className="form-control "
+                                                id="signup-firstname"
+                                                placeholder="Enter Email ID"
+                                                value={values.email}
+                                                onChange={(e) => setValues({ ...values, email: e.target.value })}
+                                                isInvalid={!!errors.email}
+                                            />
+                                            <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+                                        </Col>
+                                        <Col xl={12} className="mb-2">
+                                            <Form.Label htmlFor="signin-password" className="text-default d-block">Password</Form.Label>
+                                            <div className="position-relative">
                                                 <Form.Control
-                                                    type="email"
+                                                    type={values.showPassword ? "text" : "password"}
                                                     className="form-control "
-                                                    id="signup-firstname"
-                                                    placeholder="Enter Email ID"
-                                                    value={values.email}
-                                                    onChange={(e) => setValues({ ...values, email: e.target.value })}
-                                                    isInvalid={!!errors.email}
+                                                    id="signup-password"
+                                                    placeholder="Password"
+                                                    value={values.password}
+                                                    onChange={(e) => setValues({ ...values, password: e.target.value })}
+                                                    isInvalid={!!errors.password}
                                                 />
-                                                <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
-                                            </Col>
-                                            <Col xl={12} className="mb-2">
-                                                <Form.Label htmlFor="signin-password" className="text-default d-block">Password</Form.Label>
-                                                <div className="position-relative">
-                                                    <Form.Control
-                                                        type={values.showPassword ? "text" : "password"}
-                                                        className="form-control "
-                                                        id="signup-password"
-                                                        placeholder="Password"
-                                                        value={values.password}
-                                                        onChange={(e) => setValues({ ...values, password: e.target.value })}
-                                                        isInvalid={!!errors.password}
-                                                    />
-                                                    <Link scroll={false} href="#!" className="show-password-button text-muted"
-                                                        onClick={() => setValues((prev: any) => ({ ...prev, showPassword: !prev.showPassword }))}>
-                                                        {values.showPassword ? (
-                                                            <i className="ri-eye-line align-middle"></i>
-                                                        ) : (
-                                                            <i className="ri-eye-off-line align-middle"></i>
-                                                        )}
-                                                    </Link>
-                                                    <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
-                                                </div>
-                                                <div className="mt-2">
-                                                    <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" defaultValue="" id="defaultCheck1" defaultChecked />
-                                                        <label className="form-check-label" htmlFor="defaultCheck1">
-                                                            Remember me
-                                                        </label>
-                                                        <Link scroll={false} href="/authentication/reset-password/basic" className="float-end link-danger fw-medium fs-12">Forget password ?</Link>
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                        <div className="d-grid mt-3">
-                                            <SpkButton Buttontype="submit" Customclass="btn btn-primary">Sign In</SpkButton>
-                                        </div>
+                                                <Link scroll={false} href="#!" className="show-password-button text-muted"
+                                                    onClick={() => setValues((prev: any) => ({ ...prev, showPassword: !prev.showPassword }))}>
+                                                    {values.showPassword ? (
+                                                        <i className="ri-eye-line align-middle"></i>
+                                                    ) : (
+                                                        <i className="ri-eye-off-line align-middle"></i>
+                                                    )}
+                                                </Link>
+                                                <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>   </div>
+                                        </Col>
+                                    </Row>
+                                    <div className="d-grid mt-3">
+                                    <SpkButton Buttontype="submit" Customclass="btn btn-primary">Sign In</SpkButton>
+                                    </div>
                                     </Form>
                                     <div className="text-center my-3 authentication-barrier">
                                         <span className="op-4 fs-13">OR</span>
@@ -144,7 +136,7 @@ const Cover: React.FC<CoverProps> = () => {
                                         </SpkButton>
                                     </div>
                                     <div className="text-center mt-3 fw-medium">
-                                        Dont have an account? <Link scroll={false} href="/authentication/sign-up/basic/" className="text-primary">Sign Up</Link>
+                                        Already have a account? <Link scroll={false} href="/authentication/sign-in/basic/" className="text-primary">Sign In</Link>
                                     </div>
                                 </Card.Body>
                             </Card>
@@ -176,5 +168,6 @@ const Cover: React.FC<CoverProps> = () => {
             <ToastContainer />
         </Fragment>
     )
-}
+};
+
 export default Cover;

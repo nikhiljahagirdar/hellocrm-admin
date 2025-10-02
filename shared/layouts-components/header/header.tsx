@@ -551,7 +551,7 @@ const Header = () => {
 
                         {/* <!-- Start::header-element --> */}
 
-                        <li className="header-element header-theme-mode">
+                        
 
                             {/* <!-- Start::header-link|layout-setting --> */}
 
@@ -578,7 +578,7 @@ const Header = () => {
 
                             {/* <!-- End::header-link|layout-setting --> */}
 
-                        </li>
+                        
 
                         {/* <!-- End::header-element --> */}
 
@@ -617,7 +617,7 @@ const Header = () => {
                                                     </span>
                                                 </div>
                                                 <div className="flex-fill w-75">
-                                                    <div className='d-flex align-items-start justify-content-between mb-3'>
+                                                    {/* <div className='d-flex align-items-start justify-content-between mb-3'>
                                                         <div className='fs-14 fw-medium w-75'>
                                                             <div className='text-truncate'>
                                                                 <Link href="/dashboards/ecommerce/cart/" scroll={false} >{item.name}</Link>
@@ -629,7 +629,7 @@ const Header = () => {
                                                         <div className="text-end">
                                                             <Link scroll={false} href="#!;" onClick={(e) => handleNoteRemove(item.id, e)} className="header-cart-remove dropdown-item-close"><i className="ri-delete-bin-line"></i></Link>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
                                                     <div className="d-flex align-items-center justify-content-between">
                                                         <div className="flex-fill">
                                                             <div className="lh-1 fs-12 mb-1">
@@ -653,9 +653,9 @@ const Header = () => {
                                     ))}
                                 </SimpleBar>
                                 <div className={`p-3 empty-header-item1 border-top ${note.length === 0 && 'd-none'} `}>
-                                    <div className="d-grid">
+                                    {/* <div className="d-grid">
                                         <Link scroll={false} href="/dashboards/ecommerce/checkout/" className="btn btn-primary">Proceed to checkout</Link>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 {note.length === 0 && (
                                     <div className="p-5 empty-item"> 

@@ -769,8 +769,8 @@ const Sidebar = () => {
 
 								</Fragment>
 							))}
-							<li>
-								<ul className="slide-menu child1 doublemenu_slide-menu">
+							<li >
+								<ul className="slide-menu child1 doublemenu_slide-menu d-none">
 									<li className="text-center p-3 text-fixed-white">
 										<div className="doublemenu_slide-menu-background">
 											<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/media/backgrounds/13.png`} alt="" className="" />
@@ -798,50 +798,7 @@ const Sidebar = () => {
 
 						</ul>
 
-						<ul className="doublemenu_bottom-menu main-menu mb-0 border-top">
-							{/* <!-- Start::slide --> */}
-							<li className="slide">
-								<a href="#!;" className="side-menu__item layout-setting-doublemenu" onClick={toggleTheme}>
-									<span className="light-layout">
-										{/* <!-- Start::header-link-icon --> */}
-										<svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><path d="M108.11,28.11A96.09,96.09,0,0,0,227.89,147.89,96,96,0,1,1,108.11,28.11Z" opacity="0.2" /><path d="M108.11,28.11A96.09,96.09,0,0,0,227.89,147.89,96,96,0,1,1,108.11,28.11Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
-										{/* <!-- End::header-link-icon --> */}
-									</span>
-									<span className="dark-layout">
-										{/* <!-- Start::header-link-icon --> */}
-										<svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><circle cx="128" cy="128" r="56" opacity="0.2" /><line x1="128" y1="40" x2="128" y2="32" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><circle cx="128" cy="128" r="56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="64" y1="64" x2="56" y2="56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="64" y1="192" x2="56" y2="200" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="192" y1="64" x2="200" y2="56" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="192" y1="192" x2="200" y2="200" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="40" y1="128" x2="32" y2="128" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="128" y1="216" x2="128" y2="224" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="216" y1="128" x2="224" y2="128" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
-										{/* <!-- End::header-link-icon --> */}
-									</span>
-									<span className="side-menu__label">Theme Settings</span>
-								</a>
-							</li>
-							{/* <!-- End::slide --> */}
-							{/* <!-- Start::slide --> */}
-							<li className="slide">
-								<Link href="/authentication/sign-in/cover" className="side-menu__item">
-									<svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><path d="M48,40H208a16,16,0,0,1,16,16V200a16,16,0,0,1-16,16H48a0,0,0,0,1,0,0V40A0,0,0,0,1,48,40Z" opacity="0.2" /><polyline points="112 40 48 40 48 216 112 216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="112" y1="128" x2="224" y2="128" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><polyline points="184 88 224 128 184 168" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
-									<span className="side-menu__label">Logout</span>
-								</Link>
-							</li>
-							{/* <!-- End::slide --> */}
-							{/* <!-- Start::slide --> */}
-							<li className="slide">
-								<Link href="/pages/profile-settings" className="side-menu__item">
-									<svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><path d="M205.31,71.08a16,16,0,0,1-20.39-20.39A96,96,0,0,0,63.8,199.38h0A72,72,0,0,1,128,160a40,40,0,1,1,40-40,40,40,0,0,1-40,40,72,72,0,0,1,64.2,39.37A96,96,0,0,0,205.31,71.08Z" opacity="0.2" /><line x1="200" y1="40" x2="200" y2="28" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><circle cx="200" cy="56" r="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="186.14" y1="48" x2="175.75" y2="42" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="186.14" y1="64" x2="175.75" y2="70" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="200" y1="72" x2="200" y2="84" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="213.86" y1="64" x2="224.25" y2="70" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="213.86" y1="48" x2="224.25" y2="42" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><path d="M63.8,199.37a72,72,0,0,1,128.4,0" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><path d="M222.67,112A95.92,95.92,0,1,1,144,33.33" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
-									<span className="side-menu__label">Profile Settings</span>
-								</Link>
-							</li>
-							{/* <!-- End::slide --> */}
-							{/* <!-- Start::slide --> */}
-							<li className="slide">
-								<Link href="/pages/profile" className="side-menu__item p-1 rounded-circle mb-0">
-									<span className="avatar avatar-md avatar-rounded">
-										<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/faces/10.jpg`} alt="" className="" />
-									</span>
-								</Link>
-							</li>
-							{/* <!-- End::slide --> */}
-						</ul>
+						
 
 						<div className="slide-right" id="slide-right" onClick={slideRight} >
 							<svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">

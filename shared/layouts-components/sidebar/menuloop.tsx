@@ -51,7 +51,13 @@ const Menuloop = ({ MenuItems, level, handleToMenu, HoverToggleInnerMenuFn }: an
             key={index}
           >
             {firstlevel?.type === "link" ?
-              <Link href={firstlevel.path} className={`side-menu__item ${firstlevel?.selected ? 'active' : ''}`}>{firstlevel.icon}
+              <Link href={firstlevel.path} className={`side-menu__item ${firstlevel?.selected ? 'active' : ''}`}>
+                <span className={`${local_varaiable?.dataVerticalStyle == 'doublemenu' ? '' : 'd-none'}`}>
+                  <SpkTooltips placement="auto" title={firstlevel.title}>
+                    <div>{firstlevel.icon}</div>
+                  </SpkTooltips>
+                </span>
+                {local_varaiable?.dataVerticalStyle != "doublemenu" ? firstlevel.icon : ""}
                 <span className=""> {firstlevel.title} {firstlevel.badgetxt ? (<span className={firstlevel.class}> {firstlevel.badgetxt}</span>
                 ) : (
                   ""
@@ -61,8 +67,13 @@ const Menuloop = ({ MenuItems, level, handleToMenu, HoverToggleInnerMenuFn }: an
               : ""}
             {firstlevel?.type === "empty" ?
               <Link href="#!" className={`side-menu__item`} onClick={handleClick}>
-                {firstlevel.icon}
-                {firstlevel.title}
+                <span className={`${local_varaiable?.dataVerticalStyle == 'doublemenu' ? '' : 'd-none'}`}>
+                  <SpkTooltips placement="auto" title={firstlevel.title}>
+                    <div>{firstlevel.icon}</div>
+                  </SpkTooltips>
+                </span>
+                {local_varaiable?.dataVerticalStyle != "doublemenu" ? firstlevel.icon : ""}
+                <span className="">{firstlevel.title}</span>
               </Link>
               : ""}
             {firstlevel?.type === "sub" ?

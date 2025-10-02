@@ -55,11 +55,16 @@ const Landing = () => {
     }
 
     let [variable, setVariable] = useState(getState());
+     
 
     useEffect(() => {
         const subscription = data$.subscribe((e) => {
             setVariable(e);
         });
+    
+        localStorage.setItem('dynamiccolor','41,7,73');
+        localStorage.setItem('vyzormenu','light');
+        localStorage.setItem('vyzormodern','Modern');
 
         return () => subscription.unsubscribe();
     }, []);
@@ -355,7 +360,7 @@ const Landing = () => {
                             {/* <!-- Start::header-link|switcher-icon --> */}
 
                             <div className="btn-list d-lg-none d-flex">
-                                <Link scroll={false} href="/authentication/sign-up/basic" className="btn btn-primary-light">
+                                <Link scroll={false} href="/authentication/sign-in" className="btn btn-primary-light">
                                     Sign Up
                                 </Link>
                                 <SpkButton Buttonvariant='success' onClickfunc={handleShow} Customclass="btn-icon switcher-icon d-flex align-items-center justify-content-center" data-bs-toggle="offcanvas"
