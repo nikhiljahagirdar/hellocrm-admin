@@ -316,9 +316,9 @@ const Landing = () => {
 
                         <div className="header-element">
                             <div className="horizontal-logo">
-                                <Link scroll={false} href="/dashboards/sales" className="header-logo">
-                                    <Image fill src="../assets/images/brand-logos/toggle-logo.png" alt="logo" className="toggle-logo" />
-                                    <Image fill src="../assets/images/brand-logos/toggle-dark.png" alt="logo" className="toggle-dark" />
+                                <Link scroll={false} href="/dashboards/crm/dashboard" className="header-logo">
+                                    <Image fill src="../assets/images/brand-logos/hello_crm.png" alt="logo" className="toggle-logo" />
+                                    <Image fill src="../assets/images/brand-logos/hello_crm.png" alt="logo" className="toggle-dark" />
                                 </Link>
                             </div>
                         </div>
@@ -401,10 +401,10 @@ const Landing = () => {
                         <nav className="main-menu-container nav nav-pills sub-open">
                             <div className="landing-logo-container">
                                 <div className="horizontal-logo">
-                                    <Link scroll={false} href="/dashboards/crm" className="header-logo">
-                                        <Image fill src="../assets/images/brand-logos/desktop-logo.png" alt="logo"
+                                    <Link scroll={false} href="/dashboards/crm/dashboard" className="header-logo">
+                                        <Image fill src="../assets/images/brand-logos/hello_crm.png" alt="logo"
                                             className="desktop-logo" />
-                                        <Image fill src="../assets/images/brand-logos/desktop-dark.png" alt="logo"
+                                        <Image fill src="../assets/images/brand-logos/hello_crm.png" alt="logo"
                                             className="desktop-dark" />
                                     </Link>
                                 </div>
