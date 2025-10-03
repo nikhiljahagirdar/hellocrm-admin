@@ -709,10 +709,10 @@ const Sidebar = () => {
 
 				<div className="main-sidebar-header">
 					<Link scroll={false} href="/dashboards/crm/dashboard" className="header-logo">
-						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-1.png`} alt="logo" className="desktop-logo" />
-						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-1.png`} alt="logo" className="toggle-dark" />
-						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-1.png`} alt="logo" className="desktop-dark" />
-						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-1.png`} alt="logo" className="toggle-logo" />
+						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-2.png`} alt="logo" className="desktop-logo" />
+						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-2.png`} alt="logo" className="toggle-dark" />
+						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-2.png`} alt="logo" className="desktop-dark" />
+						<Image fill src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/crm-logo-2.png`} alt="logo" className="toggle-logo" />
 					</Link>
 				</div>
 				{/* <!-- End::main-sidebar-header --> */}

@@ -111,7 +111,7 @@ const SupportTickets: React.FC<SupportTicketsProps> = () => {
             <Card.Body className="p-0">
               <div className="table-responsive">
                 <SpkTables
-                  tableClass="text-nowrap table-hover w-100"
+                  tableClass="text-nowrap table-sm table"
                   showCheckbox={true}
                   header={[
                     { title: <div className="d-flex align-items-center justify-content-between" onClick={() => handleSort('id')} style={{cursor: 'pointer'}}>Ticket ID <i className="ri-arrow-up-down-line ms-1"></i></div> },
@@ -143,10 +143,16 @@ const SupportTickets: React.FC<SupportTicketsProps> = () => {
                       </td>
                       <td>{ticket.createdDate}</td>
                       <td>
-                        <div className="btn-group">
-                          <SpkButton Buttonvariant="info" Size="sm"><i className="ri-eye-line"></i></SpkButton>
-                          <SpkButton Buttonvariant="warning" Size="sm"><i className="ri-edit-line"></i></SpkButton>
-                          <SpkButton Buttonvariant="success" Size="sm"><i className="ri-check-line"></i></SpkButton>
+                        <div className="hstack gap-2 fs-15">
+                          <a className="btn btn-icon btn-sm btn-success-light rounded-pill" href="#!">
+                            <i className="ri-download-2-line"></i>
+                          </a>
+                          <a className="btn btn-icon btn-sm btn-info-light rounded-pill" href="#!">
+                            <i className="ri-edit-line"></i>
+                          </a>
+                          <a className="btn btn-icon btn-sm btn-danger-light rounded-pill" href="#!">
+                            <i className="ri-delete-bin-line"></i>
+                          </a>
                         </div>
                       </td>
                     </tr>
