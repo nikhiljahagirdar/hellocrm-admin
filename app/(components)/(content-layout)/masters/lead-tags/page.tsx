@@ -1,154 +1,51 @@
 'use client'
-import { Fragment, useState } from 'react'
-import { Card, Col, Row, Form, Dropdown } from 'react-bootstrap'
-import SpkTables from '@/shared/@spk-reusable-components/reusable-tables/spk-tables'
+import { Fragment } from 'react'
+import MasterPageTemplate from '@/shared/@spk-reusable-components/reusable-pages/master-page-template'
 import SpkBadge from '@/shared/@spk-reusable-components/general-reusable/reusable-uielements/spk-badge'
-import SpkButton from '@/shared/@spk-reusable-components/general-reusable/reusable-uielements/spk-buttons'
-import SpkDropdown from '@/shared/@spk-reusable-components/general-reusable/reusable-uielements/spk-dropdown'
 
 const LeadTags = () => {
-  const [sortConfig, setSortConfig] = useState<{key: string, direction: 'asc' | 'desc'} | null>(null)
-
-  const handleSort = (key: string) => {
-    let direction: 'asc' | 'desc' = 'asc'
-    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'asc') {
-      direction = 'desc'
-    }
-    setSortConfig({ key, direction })
-  }
-
-  const leadTagsData = [
-    { id: 1, businessName: 'ABC Properties', tagName: 'Hot Lead', description: 'High priority lead', color: '#dc3545', status: 'Active', createdDate: '2024-01-15', updatedDate: '2024-01-15' },
-    { id: 2, businessName: 'XYZ Builders', tagName: 'Cold Lead', description: 'Low priority lead', color: '#6c757d', status: 'Active', createdDate: '2024-01-14', updatedDate: '2024-01-14' },
-    { id: 3, businessName: 'PQR Realty', tagName: 'VIP', description: 'VIP customer lead', color: '#ffc107', status: 'Active', createdDate: '2024-01-13', updatedDate: '2024-01-13' },
-    { id: 4, businessName: 'ABC Properties', tagName: 'Follow Up', description: 'Requires follow up', color: '#17a2b8', status: 'Inactive', createdDate: '2024-01-12', updatedDate: '2024-01-12' },
-    { id: 5, businessName: 'LMN Developers', tagName: 'Interested', description: 'Showing interest', color: '#28a745', status: 'Active', createdDate: '2024-01-11', updatedDate: '2024-01-11' }
+  const data = [
+    { id: 1, tagName: 'Hot Lead', description: 'High priority lead', color: '#dc3545', status: 'Active', createdDate: '2024-01-15' },
+    { id: 2, tagName: 'Warm Lead', description: 'Medium priority lead', color: '#ffc107', status: 'Active', createdDate: '2024-01-14' },
+    { id: 3, tagName: 'Cold Lead', description: 'Low priority lead', color: '#17a2b8', status: 'Active', createdDate: '2024-01-13' },
+    { id: 4, tagName: 'VIP', description: 'Very important person', color: '#28a745', status: 'Active', createdDate: '2024-01-12' },
+    { id: 5, tagName: 'Follow Up', description: 'Requires follow up', color: '#6f42c1', status: 'Inactive', createdDate: '2024-01-11' }
   ]
 
-  return (
+  const renderRow = (item: any) => (
     <Fragment>
-      <div className="d-flex align-items-center justify-content-between mb-3 page-header-breadcrumb flex-wrap gap-2">
-        <div>
-          <h1 className="page-title fw-medium fs-20 mb-0">Lead Tags</h1>
-        </div>
-        <div className="d-flex align-items-center gap-2 flex-wrap">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb mb-0">
-              <li className="breadcrumb-item"><a href="#!">Masters</a></li>
-              <li className="breadcrumb-item"><a href="#!">CRM & Leads</a></li>
-              <li className="breadcrumb-item active">Lead Tags</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-
-      <Row>
-        <Col xl={12}>
-          <Card className="custom-card">
-            <Card.Header>
-              <div className="d-flex align-items-center justify-content-between w-100">
-                <div className="d-flex align-items-center gap-2">
-                  <div className="d-flex flex-wrap gap-3 align-items-center">
-                    <Form.Select className="form-select-sm" style={{ width: '200px' }}>
-                      <option>Business Name</option>
-                      <option>ABC Properties</option>
-                      <option>XYZ Builders</option>
-                      <option>PQR Realty</option>
-                      <option>LMN Developers</option>
-                    </Form.Select>
-                    <Form.Control type="text" placeholder="Tag Name" className="form-control-sm" style={{ width: '200px' }} />
-                    <Form.Select className="form-select-sm" style={{ width: '150px' }}>
-                      <option>Status</option>
-                      <option>Active</option>
-                      <option>Inactive</option>
-                    </Form.Select>
-                  </div>
-                </div>
-                <div className="d-flex align-items-center gap-2">
-                  <SpkDropdown
-                    Togglevariant=""
-                    Toggletext="Export"
-                    Arrowicon={true}
-                    IconClass="ri-download-line me-1"
-                    Customtoggleclass="btn btn-primary btn-sm"
-                  >
-                    <Dropdown.Item>CSV</Dropdown.Item>
-                    <Dropdown.Item>Excel</Dropdown.Item>
-                    <Dropdown.Item>PDF</Dropdown.Item>
-                  </SpkDropdown>
-                  <SpkButton Buttonvariant="success" Size="sm">
-                    +
-                  </SpkButton>
-                </div>
-              </div>
-            </Card.Header>
-            <Card.Body className="p-0">
-              <div className="table-responsive">
-                <SpkTables
-                  tableClass="text-nowrap table-hover w-100"
-                  showCheckbox={true}
-                  header={[
-                    { title: <div className="d-flex align-items-center justify-content-between" onClick={() => handleSort('businessName')} style={{cursor: 'pointer'}}>Business Name <i className="ri-arrow-up-down-line ms-1"></i></div> },
-                    { title: <div className="d-flex align-items-center justify-content-between" onClick={() => handleSort('tagName')} style={{cursor: 'pointer'}}>Tag Name <i className="ri-arrow-up-down-line ms-1"></i></div> },
-                    { title: <div className="d-flex align-items-center justify-content-between" onClick={() => handleSort('description')} style={{cursor: 'pointer'}}>Description <i className="ri-arrow-up-down-line ms-1"></i></div> },
-                    { title: <div className="d-flex align-items-center justify-content-between" onClick={() => handleSort('color')} style={{cursor: 'pointer'}}>Color <i className="ri-arrow-up-down-line ms-1"></i></div> },
-                    { title: <div className="d-flex align-items-center justify-content-between" onClick={() => handleSort('status')} style={{cursor: 'pointer'}}>Status <i className="ri-arrow-up-down-line ms-1"></i></div> },
-                    { title: 'Actions' }
-                  ]}
-                >
-                  {leadTagsData.map((tag, index) => (
-                    <tr key={index}>
-                      <td><input className="form-check-input" type="checkbox" /></td>
-                      <td className="fw-semibold">{tag.businessName}</td>
-                      <td>
-                        <SpkBadge variant="" Customclass="badge bg-info-transparent">
-                          {tag.tagName}
-                        </SpkBadge>
-                      </td>
-                      <td>{tag.description}</td>
-                      <td>
-                        <div className="d-flex align-items-center gap-2">
-                          <div style={{ width: '20px', height: '20px', backgroundColor: tag.color, borderRadius: '4px' }}></div>
-                          <span>{tag.color}</span>
-                        </div>
-                      </td>
-                      <td>
-                        <SpkBadge variant="" Customclass={`badge bg-${tag.status === 'Active' ? 'success' : 'danger'}-transparent`}>
-                          {tag.status}
-                        </SpkBadge>
-                      </td>
-                      <td>
-                        <div className="btn-group">
-                          <SpkButton Buttonvariant="info" Size="sm"><i className="ri-eye-line"></i></SpkButton>
-                          <SpkButton Buttonvariant="warning" Size="sm"><i className="ri-edit-line"></i></SpkButton>
-                          <SpkButton Buttonvariant="danger" Size="sm"><i className="ri-delete-bin-line"></i></SpkButton>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </SpkTables>
-              </div>
-            </Card.Body>
-            <Card.Footer>
-              <div className="d-flex align-items-center justify-content-between">
-                <div>Showing 1 to 5 of 100 entries <i className="bi bi-arrow-right ms-2"></i></div>
-                <div>
-                  <nav>
-                    <ul className="pagination pagination-sm mb-0">
-                      <li className="page-item disabled"><a className="page-link">Previous</a></li>
-                      <li className="page-item active"><a className="page-link">1</a></li>
-                      <li className="page-item"><a className="page-link">2</a></li>
-                      <li className="page-item"><a className="page-link">3</a></li>
-                      <li className="page-item"><a className="page-link">Next</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </Card.Footer>
-          </Card>
-        </Col>
-      </Row>
+      <td className="fw-semibold">{item.tagName}</td>
+      <td>{item.description}</td>
+      <td><div className="d-flex align-items-center gap-2"><div style={{ width: '20px', height: '20px', backgroundColor: item.color, borderRadius: '4px' }}></div><span>{item.color}</span></div></td>
+      <td><SpkBadge variant="" Customclass={`badge bg-${item.status === 'Active' ? 'success' : 'danger'}-transparent`}>{item.status}</SpkBadge></td>
+      <td>{item.createdDate}</td>
     </Fragment>
+  )
+
+  return (
+    <MasterPageTemplate
+      title="Lead Tags"
+      breadcrumbs={['Masters', 'CRM & Leads', 'Lead Tags']}
+      searchFields={[{ placeholder: 'Tag Name', width: '200px' }, { placeholder: 'Status', width: '150px' }]}
+      tableHeaders={[
+        { title: 'Tag Name', sortKey: 'tagName' },
+        { title: 'Description', sortKey: 'description' },
+        { title: 'Color', sortKey: 'color' },
+        { title: 'Status', sortKey: 'status' },
+        { title: 'Created Date', sortKey: 'createdDate' }
+      ]}
+      data={data}
+      renderRow={renderRow}
+      formFields={[
+        { name: 'tagName', label: 'Tag Name', type: 'text' },
+        { name: 'description', label: 'Description', type: 'textarea' },
+        { name: 'color', label: 'Color', type: 'color' },
+        { name: 'status', label: 'Status', type: 'select', options: ['Active', 'Inactive'] }
+      ]}
+      onAdd={(data) => console.log('Add:', data)}
+      onEdit={(id, data) => console.log('Edit:', id, data)}
+      onDelete={(id) => console.log('Delete:', id)}
+    />
   )
 }
 

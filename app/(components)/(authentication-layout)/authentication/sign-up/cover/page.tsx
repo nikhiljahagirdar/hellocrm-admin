@@ -136,7 +136,7 @@ const Cover: React.FC<CoverProps> = () => {
                                         </SpkButton>
                                     </div>
                                     <div className="text-center mt-3 fw-medium">
-                                        Already have a account? <Link scroll={false} href="/authentication/sign-in/basic/" className="text-primary">Sign In</Link>
+                                        Already have a account? <Link scroll={false} href="/authentication/sign-in/cover/" className="text-primary">Sign In</Link>
                                     </div>
                                 </Card.Body>
                             </Card>
@@ -145,9 +145,9 @@ const Cover: React.FC<CoverProps> = () => {
                 </Col>
                 <Col xxl={3} xl={3} lg={12} className="d-xl-block d-none px-0">
                     <div className="authentication-cover overflow-hidden">
-                        <div className="authentication-cover-logo justify-content-center align-items-center">
-                            <Link scroll={false} href="/dashboards/sales">
-                                <Image fill src="../../../assets/images/brand-logos/hello_crm.png" alt="logo" className="desktop-dark" />
+                        <div className="authentication-cover-logo">
+                            <Link scroll={false} href="/dashboards/crm/dasboard">
+                                <Image fill src="../../../assets/images/brand-logos/hello_crm.svg" alt="logo" className="desktop-dark" />
                             </Link>
                         </div>
                         <div className="authentication-cover-background">
