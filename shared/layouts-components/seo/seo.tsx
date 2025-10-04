@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect } from 'react';
+import Head from 'next/head';
 
 const Seo = ({ title }: any) => {
 
@@ -10,6 +11,9 @@ const Seo = ({ title }: any) => {
 
   return (
     <>
+      <Head>
+        <link rel="icon" href="/public/assets/images/brand-logos/favicon.ico" />
+      </Head>
     </>
   )
 }
