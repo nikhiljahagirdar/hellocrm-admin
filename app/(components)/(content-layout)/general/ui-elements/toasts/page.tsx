@@ -1,7 +1,6 @@
 "use client"
 
 import SpkToastify from "@/shared/@spk-reusable-components/reusable-plugins/spk-toastify";
-import SpkToast from "@/shared/@spk-reusable-components/general-reusable/reusable-uielements/spk-toast";
 import SpkButton from "@/shared/@spk-reusable-components/general-reusable/reusable-uielements/spk-buttons";
 import { reusabletoast1, reusabletoast10, reusabletoast2, reusabletoast3, reusabletoast4, reusabletoast5, reusabletoast6, reusabletoast7, reusabletoast8, reusabletoast9, toast1, toast10, toast2, toast3, toast4, toast5, toast6, toast7, toast8, toast9 } from "@/shared/data/prism-code/uielements-prism";
 import Seo from "@/shared/layouts-components/seo/seo";
@@ -10,12 +9,17 @@ import React, { Fragment, useState } from "react";
 import { Card, Col, Row, Toast, ToastContainer } from "react-bootstrap";
 import { toast } from "react-toastify";
 import Pageheader from "@/shared/layouts-components/pageheader/pageheader";
+import Image from "next/image";
 
 interface ToastsProps { }
 
 const Toasts: React.FC<ToastsProps> = () => {
 
     const [toasts, setToasts] = useState<{ [key: string]: boolean }>({});
+    
+    const toggleShowA = () => setToasts(prev => ({ ...prev, showA: !prev.showA }));
+    const toggleShow2 = () => setToasts(prev => ({ ...prev, show2: !prev.show2 }));
+    const toggleShow3 = () => setToasts(prev => ({ ...prev, show3: !prev.show3 }));
 
     const addToast = (toastName: string) => {
         setToasts((prevToasts) => ({
@@ -51,35 +55,105 @@ const Toasts: React.FC<ToastsProps> = () => {
                         <SpkButton Buttontype="button" Buttonvariant="primary" Id="liveToastBtn" onClickfunc={() => addToast('live')}>Show live
                             toast</SpkButton>
                         <ToastContainer className="toast-container position-fixed top-0 end-0 p-3">
-                            <SpkToast show={toasts['live'] || false} onClose={() => handleToasts('live')} title="Vyzor" message="Hello, world! This is a toast message." timestamp="11 min ago" imgSrc="../../../assets/images/brand-logos/toggle-logo.png" ToastHeader={true} toastClass="custom-toast" headerClass="text-default" imgClass="custom-img-class" autohide={false} />
+                            <Toast show={toasts['live'] || false} onClose={() => handleToasts('live')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                                <Toast.Header>
+                                    <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                    <strong className="me-auto">Velvet</strong>
+                                    <small>11 mins ago</small>
+                                </Toast.Header>
+                                <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+                            </Toast>
                         </ToastContainer>
                     </ShowCode>
                     <ShowCode title=" Color schemes" customCardClass="custom-card" customCardBodyClass="" reactCode={toast4} reusableCode={reusabletoast4}>
-                        <SpkToast toastClass="align-items-center text-bg-primary border-0 fade show mb-4" message="Hello, world! This is the Primary toast message. " btnClass="btn-close btn-close-white m-auto" show={toasts["primary"]} onClose={() => handleToasts('primary')} ToastBtn={true} ToastHeader={false} />
-                        <SpkToast toastClass="align-items-center text-bg-secondary border-0 fade show mb-4" message="Hello, world! This is the Secondary toast. " btnClass="btn-close btn-close-white m-auto" show={toasts["secondary"]} onClose={() => handleToasts('secondary')} ToastBtn={true} ToastHeader={false} />
-                        <SpkToast toastClass="align-items-center text-bg-success border-0 fade show mb-4" message="Hello, world! This is the Success toast message. " btnClass="btn-close btn-close-white m-auto" show={toasts["warning"]} onClose={() => handleToasts('warning')} ToastBtn={true} ToastHeader={false} />
-                        <SpkToast toastClass="align-items-center text-bg-info border-0 fade show mb-4" message="Hello, world! This is the Info toast message. " btnClass="btn-close btn-close-white m-auto" show={toasts["info"]} onClose={() => handleToasts('info')} ToastBtn={true} ToastHeader={false} />
+                        <Toast show={toasts["primary"]} onClose={() => handleToasts('primary')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <Toast.Header>
+                                <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                <strong className="me-auto">Velvet</strong>
+                                <small>11 mins ago</small>
+                            </Toast.Header>
+                            <Toast.Body>Hello, world! This is the Primary toast message.</Toast.Body>
+                        </Toast>
+                        <Toast show={toasts["secondary"]} onClose={() => handleToasts('secondary')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <Toast.Header>
+                                <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                <strong className="me-auto">Velvet</strong>
+                                <small>11 mins ago</small>
+                            </Toast.Header>
+                            <Toast.Body>Hello, world! This is the Secondary toast.</Toast.Body>
+                        </Toast>
+                        <Toast show={toasts["warning"]} onClose={() => handleToasts('warning')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <Toast.Header>
+                                <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                <strong className="me-auto">Velvet</strong>
+                                <small>11 mins ago</small>
+                            </Toast.Header>
+                            <Toast.Body>Hello, world! This is the Success toast message.</Toast.Body>
+                        </Toast>
+                        <Toast show={toasts["info"]} onClose={() => handleToasts('info')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <Toast.Header>
+                                <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                <strong className="me-auto">Velvet</strong>
+                                <small>11 mins ago</small>
+                            </Toast.Header>
+                            <Toast.Body>Hello, world! This is the Info toast message.</Toast.Body>
+                        </Toast>
                     </ShowCode>
                 </Col>
                 <Col xl={12}>
                     <ShowCode title="Basic example" customCardClass="custom-card" customCardBodyClass="" reactCode={toast1} reusableCode={reusabletoast1}>
-                        <SpkToast show={toasts['basic']} onClose={() => handleToasts('basic')} title="Vyzor" message="Hello, world! This is a toast message." timestamp="11 min ago" imgSrc="../../../assets/images/brand-logos/toggle-logo.png" ToastHeader={true} toastClass="custom-toast" headerClass="text-default" imgClass="custom-img-class" autohide={false} />
+                        <Toast show={toasts['basic']} onClose={() => handleToasts('basic')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <Toast.Header>
+                                <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                <strong className="me-auto">Velvet</strong>
+                                <small>11 mins ago</small>
+                            </Toast.Header>
+                            <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+                        </Toast>
                     </ShowCode>
                     <ShowCode title="Stacking" customCardClass="custom-card" customCardBodyClass="" reactCode={toast3} reusableCode={reusabletoast3}>
                         <ToastContainer className="toast-container position-static">
 
-                            <SpkToast show={toasts["stack"]} onClose={() => handleToasts('stack')} ToastHeader={true} toastClass="fade show" headerClass="text-default" imgSrc="../../../assets/images/brand-logos/toggle-logo.png" imgClass="me-2" title="Vyzor" timestamp="just now" message={"See? Just like this."} />
-                            <SpkToast show={toasts["stack1"]} onClose={() => handleToasts('stack1')} ToastHeader={true} toastClass="fade show" headerClass="text-default" imgSrc="../../../assets/images/brand-logos/toggle-logo.png" imgClass="me-2" title="Vyzor" timestamp="2 seconds ago" message={" Heads up, toasts will stack automatically"} />
+                            <Toast show={toasts["stack"]} onClose={() => handleToasts('stack')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                                <Toast.Header>
+                                    <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                    <strong className="me-auto">Velvet</strong>
+                                    <small>jsut now</small>
+                                </Toast.Header>
+                                <Toast.Body>See? Just like this.</Toast.Body>
+                            </Toast>
+                            <Toast show={toasts["stack1"]} onClose={() => handleToasts('stack1')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                                <Toast.Header>
+                                    <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                    <strong className="me-auto">Velvet</strong>
+                                    <small>2 seconds ago</small>
+                                </Toast.Header>
+                                <Toast.Body> Heads up, toasts will stack automatically</Toast.Body>
+                            </Toast>
 
                         </ToastContainer>
                     </ShowCode>
                 </Col>
                 <Col xl={12}>
                     <ShowCode title="Translucent" customCardClass="custom-card" customCardBodyClass="" reactCode={toast7} reusableCode={reusabletoast7}>
-                        <SpkToast ToastHeader={true} onClose={() => handleToasts('transColor')} show={toasts['transColor']} toastClass="show" headerClass="text-default" imgClass="me-2" imgSrc="../../../assets/images/brand-logos/toggle-logo.png" title="Vyzor" timestamp="11 mins ago" message="Hello, world! This is a toast message." />
+                        <Toast show={toasts['transColor']} onClose={() => handleToasts('transColor')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <Toast.Header>
+                                <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                <strong className="me-auto">Velvet</strong>
+                                <small>11 mins ago</small>
+                            </Toast.Header>
+                            <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+                        </Toast>
                     </ShowCode>
                     <ShowCode title="Custom content" customCardClass="custom-card" customCardBodyClass="" reactCode={toast8} reusableCode={reusabletoast8}>
-                        <SpkToast ToastHeader={false} toastClass="lign-items-center fade show mb-3" ToastBtn={true} message="Hello, world! This is Primary toast message. " btnClass="btn-close me-2 m-auto" onClose={() => handleToasts('customColor')} show={toasts['customColor']} />
+                        <Toast show={toasts['customColor']} onClose={() => handleToasts('customColor')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <Toast.Header>
+                                <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                <strong className="me-auto">Velvet</strong>
+                                <small>11 mins ago</small>
+                            </Toast.Header>
+                            <Toast.Body>Hello, world! This is Primary toast message.</Toast.Body>
+                        </Toast>
                         <div>
                             <span className="my-4 text-muted">
                                 Alternatively, you can also add additional controls and components to
@@ -116,12 +190,14 @@ const Toasts: React.FC<ToastsProps> = () => {
                             <SpkButton Buttonvariant='warning-light' Buttontype="button" Customclass="btn  me-2" Id="warningToastBtn" onClickfunc={() => addToast('WarningColor')}>warning</SpkButton>
                         </div>
                         <ToastContainer className="toast-container position-fixed top-0 end-0 p-3">
-                            <SpkToast ToastHeader={true} bg="primary-transparent" toastClass="colored-toast" onClose={() => handleToasts('PrimaryColor')} show={toasts['PrimaryColor'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-primary" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} bg="secondary-transparent" toastClass="colored-toast" onClose={() => handleToasts('SecondaryColor')} show={toasts['SecondaryColor'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-secondary" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} bg="info-transparent" toastClass="colored-toast" onClose={() => handleToasts('InfoColor')} show={toasts['InfoColor'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-info" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} bg="success-transparent" toastClass="colored-toast" onClose={() => handleToasts('SuccessColor')} show={toasts['SuccessColor'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-success" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} bg="danger-transparent" toastClass="colored-toast" onClose={() => handleToasts('DangerColor')} show={toasts['DangerColor'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-danger" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} bg="warning-transparent" toastClass="colored-toast" onClose={() => handleToasts('WarningColor')} show={toasts['WarningColor'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-warning" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
+                            <Toast show={toasts['PrimaryColor'] || false} onClose={() => handleToasts('PrimaryColor')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                                <Toast.Header>
+                                    <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                    <strong className="me-auto">Velvet</strong>
+                                    <small>11 mins ago</small>
+                                </Toast.Header>
+                                <Toast.Body>Your toast message here.</Toast.Body>
+                            </Toast>
                         </ToastContainer>
                     </ShowCode>
                 </Col>
@@ -136,12 +212,14 @@ const Toasts: React.FC<ToastsProps> = () => {
                             <SpkButton Buttonvariant='warning' Buttontype="button" Customclass="me-2" Id="solidwarningToastBtn" onClickfunc={() => addToast('solidWarning')}>warning</SpkButton>
                         </div>
                         <ToastContainer className="toast-container position-fixed top-0 end-0 p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary" bodyClass="text-fixed-white" onClose={() => handleToasts('solidPrimary')} show={toasts['solidPrimary'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-primary" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-secondary" bodyClass="text-fixed-white" onClose={() => handleToasts('solidSecondary')} show={toasts['solidSecondary'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-secondary" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-info" bodyClass="text-fixed-white" onClose={() => handleToasts('solidInfo')} show={toasts['solidInfo'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-info" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-success" bodyClass="text-fixed-white" onClose={() => handleToasts('solidSuccess')} show={toasts['solidSuccess'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-success" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-danger" bodyClass="text-fixed-white" onClose={() => handleToasts('solidDanger')} show={toasts['solidDanger'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-danger" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-warning" bodyClass="text-fixed-white" onClose={() => handleToasts('solidWarning')} show={toasts['solidWarning'] || false} delay={3000} autohide={true} headerClass="text-fixed-white bg-warning" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" message="Your,toast message here." title="Vyzor" />
+                            <Toast show={toasts['solidPrimary'] || false} onClose={() => handleToasts('solidPrimary')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                                <Toast.Header>
+                                    <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                    <strong className="me-auto">Velvet</strong>
+                                    <small>11 mins ago</small>
+                                </Toast.Header>
+                                <Toast.Body>Your toast message here.</Toast.Body>
+                            </Toast>
                         </ToastContainer>
                     </ShowCode>
                 </Col>
@@ -166,40 +244,14 @@ const Toasts: React.FC<ToastsProps> = () => {
                             <SpkButton Buttonvariant='outline-primary' Buttontype="button" onClickfunc={() => addToast('bottomRight')} Customclass="me-2" Id="bottomrightToastBtn">Bottom Right</SpkButton>
                         </div>
                         <ToastContainer className="toast-container position-fixed top-0 start-0 p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('topLeft')} show={toasts['topLeft'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('topCenter')} show={toasts['topCenter'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed top-0 end-0 p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('topRight')} show={toasts['topRight'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed top-50 start-0 translate-middle-y p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('middleLeft')} show={toasts['middleLeft'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed top-50 start-50 translate-middle">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('middleCenter')} show={toasts['middleCenter'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed top-50 end-0 translate-middle-y p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('middleRight')} show={toasts['middleRight'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed bottom-0 start-0 p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('bottomLeft')} show={toasts['bottomLeft'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('bottomCenter')} show={toasts['bottomCenter'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
-                        </ToastContainer>
-                        <ToastContainer className="toast-container position-fixed bottom-0 end-0 p-3">
-                            <SpkToast ToastHeader={true} toastClass="toast colored-toast bg-primary-transparent text-primary"
-                                onClose={() => handleToasts('bottomRight')} show={toasts['bottomRight'] || false} delay={3000} autohide={true} headerClass="bg-primary text-fixed-white" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-dark.png" title="Vyzor" message="Your,toast message here." />
+                            <Toast show={toasts['topLeft'] || false} onClose={() => handleToasts('topLeft')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                                <Toast.Header>
+                                    <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                    <strong className="me-auto">Velvet</strong>
+                                    <small>11 mins ago</small>
+                                </Toast.Header>
+                                <Toast.Body>Your toast message here.</Toast.Body>
+                            </Toast>
                         </ToastContainer>
                     </ShowCode>
                 </Col>
@@ -215,7 +267,14 @@ const Toasts: React.FC<ToastsProps> = () => {
                         <div className="bd-example bg-light bd-example-toasts d-flex p-0 px-3">
                             <div aria-live="polite" aria-atomic="true"
                                 className="d-flex justify-content-center align-items-center w-100">
-                                <SpkToast ToastHeader={true} show={toasts['alignColor']} onClose={() => handleToasts('alignColor')} toastClass="fade show shadow-lg" headerClass="text-default" imgClass="bd-placeholder-img rounded me-2" imgSrc="../../../assets/images/brand-logos/toggle-logo.png" title="Vyzor" timestamp="11 mins ago" message="Hello, world! This is a toast message." />
+                                <Toast show={toasts['alignColor']} onClose={() => handleToasts('alignColor')} className="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                                    <Toast.Header>
+                                        <Image fill src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
+                                        <strong className="me-auto">Velvet</strong>
+                                        <small>11 mins ago</small>
+                                    </Toast.Header>
+                                    <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+                                </Toast>
                             </div>
                         </div>
                     </ShowCode>
