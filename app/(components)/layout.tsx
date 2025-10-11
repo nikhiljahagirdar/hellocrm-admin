@@ -5,7 +5,7 @@ import { LocalStorageBackup } from '@/shared/data/switcherdata/switcherdata';
 import { data$, getState } from '@/shared/layouts-components/services/switcherServices';
 import { Initialload } from '@/shared/contextapi';
 import { usePathname } from 'next/navigation';
-import Landingpagelayout from './(landing-layout)/layout';
+import LandingPagelayout from './(home-layout)/layout';
 
 const Layout = ({ children }: any) => {
     const pathName = usePathname();
@@ -37,7 +37,7 @@ const Layout = ({ children }: any) => {
         }
     }, []);
 
-    if (pathName === "/components/landing/") {
+    if (pathName === "/components/home/") {
         return <Landingpagelayout>{children}</Landingpagelayout>;
     }
 
